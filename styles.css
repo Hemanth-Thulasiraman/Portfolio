@@ -818,6 +818,14 @@ body {
     position: relative;
 }
 
+a.project-link {
+    cursor: pointer;
+}
+
+a.project-link:hover {
+    color: var(--primary-color);
+}
+
 .project-link::after {
     content: '→';
     margin-left: 8px;
