@@ -3,135 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hemanth - Machine Learning Engineer & Data Scientist</title>
+    <title>Hemanth Thulasiraman | ML Engineer & AI Systems Builder</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="nav-brand">Hemanth Thulasiraman</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
+            <a href="#home" class="nav-brand">HT<span class="brand-dot">.</span></a>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#contact" class="nav-link contact-btn">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow glow-1"></div>
+        <div class="hero-glow glow-2"></div>
+        <div class="hero-glow glow-3"></div>
+        <canvas id="particleCanvas"></canvas>
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="greeting">Hi, I'm</span>
-                    <span class="name">Hemanth Thulasiraman</span>
-                </h1>
-                <p class="hero-subtitle">Data Science Graduate Student at<br>University of Maryland</p>
-                <p class="hero-description">
-                    I build intelligent systems and extract insights from data to solve complex problems.
-                </p>
-                <div class="hero-social-links">
-                    <a href="https://linkedin.com/in/hemanth-thulasiraman" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:hemanth7@umd.edu" class="hero-social-link" aria-label="Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/Hemanth-Thulasiraman" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </a>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Open to Opportunities</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="hero-name">Hemanth<br>Thulasiraman</span>
+                    </h1>
+                    <p class="hero-role">
+                        <span class="role-prefix">I build&nbsp;</span>
+                        <span class="role-typed" id="typed-role"></span><span class="type-cursor">|</span>
+                    </p>
+                    <p class="hero-description">
+                        M.S. Data Science @ University of Maryland. I architect intelligent systems:
+                        fraud detection engines, LLM agents, autonomous code reviewers, and
+                        financial research assistants.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="hemanth_resume_AIEngineer (1).pdf" download class="btn btn-ghost">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Resume
+                        </a>
+                    </div>
+                    <div class="hero-links">
+                        <a href="https://github.com/Hemanth-Thulasiraman" target="_blank" rel="noopener noreferrer" class="hero-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/hemanth-thulasiraman" target="_blank" rel="noopener noreferrer" class="hero-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="mailto:hemanth7@umd.edu" class="hero-link" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="Hemanth_Resume_MLE:DS.pdf" download class="btn btn-resume">Download Resume</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-image-container">
-                    <img src="profile.jpg" alt="Hemanth Thulasiraman" class="profile-image" id="profileImage" onerror="this.style.display='none'">
-                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                <div class="hero-visual">
+                    <div class="profile-ring">
+                        <div class="profile-ring-inner">
+                            <img src="profile.jpeg" alt="Hemanth Thulasiraman" class="profile-img" id="profileImage" onerror="this.style.display='none'; document.querySelector('.profile-placeholder').style.display='flex'">
+                            <div class="profile-placeholder">HT</div>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-num">5+</span>
+                            <span class="hero-stat-label">AI Projects</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-num">2</span>
+                            <span class="hero-stat-label">Internships</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-num">1</span>
+                            <span class="hero-stat-label">Publication</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- About -->
+    <section id="about" class="about section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a Machine Learning Engineer and Data Scientist currently pursuing my M.S. in Data Science 
-                        at the University of Maryland. With hands-on experience in developing production ML systems, 
-                        I specialize in building intelligent solutions that extract meaningful insights from complex datasets.
-                    </p>
-                    <p>
-                        My work spans from deploying LSTM-based forecasting models and automating ETL pipelines to 
-                        building hybrid NLP systems and RAG-powered research assistants. I'm passionate about leveraging 
-                        cutting-edge ML frameworks and techniques to solve real-world business problems.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">Internships</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">3+</div>
-                            <div class="stat-label">Projects</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">1</div>
-                            <div class="stat-label">Publication</div>
-                        </div>
+            <div class="section-header">
+                <span class="section-tag">About</span>
+                <h2 class="section-title">Building at the frontier of ML &amp; AI</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>I'm a Machine Learning Engineer pursuing my M.S. in Data Science at the University of Maryland. My focus is on building <strong>production-grade intelligent systems</strong>: not just research prototypes, but systems with real architecture decisions, real trade-offs, and real impact.</p>
+                    <p>From fine-tuning LLMs with LoRA adapters to architecting multi-agent workflows with LangGraph, I obsess over the gap between a model that works in a notebook and a system that works in production.</p>
+                    <div class="about-interests">
+                        <span>LLM Agents</span>
+                        <span>MLOps</span>
+                        <span>NLP</span>
+                        <span>Time Series</span>
+                        <span>RAG Systems</span>
+                        <span>Deep Learning</span>
                     </div>
                 </div>
-                <div class="about-details">
-                    <div class="about-column">
-                        <h3 class="about-column-title">Interests</h3>
-                        <ul class="about-list">
-                            <li>Natural Language Processing</li>
-                            <li>Large Language Models</li>
-                            <li>Deep Learning</li>
-                            <li>Time Series Forecasting</li>
-                            <li>AI Agents</li>
-                        </ul>
-                    </div>
-                    <div class="about-column">
-                        <h3 class="about-column-title">Education</h3>
-                        <div class="education-item">
+                <div class="about-education reveal">
+                    <div class="edu-card">
+                        <div class="edu-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <div class="edu-info">
                             <h4>M.S. Data Science</h4>
-                            <p class="education-school">University of Maryland</p>
-                            <p class="education-date">Aug 2025 – Present</p>
-                            <p class="education-location">Maryland, United States</p>
+                            <p class="edu-school">University of Maryland</p>
+                            <p class="edu-date">Aug 2025 – Present · College Park, MD</p>
                         </div>
-                        <div class="education-item">
-                            <h4>B.Tech Computer Science and Engineering</h4>
-                            <p class="education-school">Vellore Institute of Technology</p>
-                            <p class="education-date">Sep 2021 – May 2025</p>
-                            <p class="education-location">Tamil Nadu, India</p>
+                    </div>
+                    <div class="edu-card">
+                        <div class="edu-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <div class="edu-info">
+                            <h4>B.Tech Computer Science &amp; Engineering</h4>
+                            <p class="edu-school">Vellore Institute of Technology</p>
+                            <p class="edu-date">Sep 2021 – May 2025 · Tamil Nadu, India</p>
                         </div>
                     </div>
                 </div>
@@ -139,235 +151,320 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <!-- Experience -->
+    <section id="experience" class="experience section">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h3 class="experience-title">Data Science Intern</h3>
-                        <span class="experience-company">OnMobile Global Limited</span>
-                        <span class="experience-date">Jan 2025 – Jul 2025</span>
+            <div class="section-header">
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Where I've worked</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Data Science Intern</h3>
+                                <span class="company-name">OnMobile Global Limited</span>
+                            </div>
+                            <span class="timeline-date">Jan 2025 – Jul 2025</span>
+                        </div>
+                        <p class="timeline-location">Bengaluru, India · Business Intelligence Team</p>
+                        <ul class="timeline-bullets">
+                            <li>Deployed an LSTM-based revenue forecasting model enabling the finance team to optimize spend plans by <strong>15%</strong></li>
+                            <li>Automated ETL pipelines reducing manual data processing by <strong>10+ hours/week</strong></li>
+                            <li>Built Power BI dashboards on BigQuery, cutting report generation time by <strong>60%</strong></li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>LSTM</span><span>BigQuery</span><span>Power BI</span><span>ETL</span>
+                        </div>
                     </div>
-                    <p class="experience-location">Bengaluru, India | Business Intelligence Team</p>
-                    <ul class="experience-description">
-                        <li>Developed and deployed an LSTM-based revenue forecasting model to predict monthly break-even points, enabling the finance team to optimize spend plans by 15%</li>
-                        <li>Performed KPI-driven data analysis with BigQuery, building dashboards to improve decision-making</li>
-                        <li>Automated ETL pipelines for revenue datasets, reducing manual data processing time by 10+ hours per week</li>
-                        <li>Created interactive Power BI dashboards integrating BigQuery data, reducing report generation time by 60%</li>
-                    </ul>
                 </div>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h3 class="experience-title">Machine Learning Intern</h3>
-                        <span class="experience-company">ELPIS IT Solutions Pvt. Ltd</span>
-                        <span class="experience-date">Aug 2023 – Oct 2023</span>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Machine Learning Intern</h3>
+                                <span class="company-name">ELPIS IT Solutions Pvt. Ltd</span>
+                            </div>
+                            <span class="timeline-date">Aug 2023 – Oct 2023</span>
+                        </div>
+                        <p class="timeline-location">Bengaluru, India</p>
+                        <ul class="timeline-bullets">
+                            <li>Built automated time-series preparation pipeline, minimizing manual intervention</li>
+                            <li>Compared ARIMA and FBProphet forecasting algorithms to improve prediction reliability</li>
+                            <li>Automated model evaluation &amp; ranking, reducing manual experimentation effort by <strong>50%</strong></li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Python</span><span>ARIMA</span><span>FBProphet</span><span>Time Series</span>
+                        </div>
                     </div>
-                    <p class="experience-location">Bengaluru, India</p>
-                    <ul class="experience-description">
-                        <li>Streamlined time-series data preparation by building an automated pipeline that minimized manual intervention</li>
-                        <li>Tested and compared multiple forecasting algorithms, including ARIMA and FBProphet, to improve prediction reliability</li>
-                        <li>Automated the evaluation and ranking of forecasting models using standardized error metrics, reducing manual experimentation effort by 50%</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Skills -->
+    <section id="skills" class="skills section">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="section-header">
+                <span class="section-tag">Skills</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C/C++</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">SQL</span>
+                <div class="skill-group reveal">
+                    <h3 class="skill-group-title">
+                        <span class="skill-group-icon">{ }</span>
+                        Languages
+                    </h3>
+                    <div class="skill-chips">
+                        <span>Python</span><span>SQL</span><span>C/C++</span><span>R</span><span>Java</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>ML & Data Science</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">Hugging Face</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
+                <div class="skill-group reveal">
+                    <h3 class="skill-group-title">
+                        <span class="skill-group-icon">⚡</span>
+                        ML &amp; AI
+                    </h3>
+                    <div class="skill-chips">
+                        <span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>LangGraph</span><span>LangChain</span><span>Hugging Face</span><span>Keras</span><span>OpenCV</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Deployment & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Git/GitHub</span>
-                        <span class="skill-tag">BigQuery</span>
-                        <span class="skill-tag">Power BI</span>
+                <div class="skill-group reveal">
+                    <h3 class="skill-group-title">
+                        <span class="skill-group-icon">◈</span>
+                        Infrastructure
+                    </h3>
+                    <div class="skill-chips">
+                        <span>FastAPI</span><span>Docker</span><span>AWS</span><span>PostgreSQL</span><span>Redis</span><span>pgvector</span><span>BigQuery</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="ChatGPT Image Jan 5, 2026, 01_09_21 PM.png" alt="Hybrid Log Classification System">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Hybrid Log Classification System</h3>
-                        <p class="project-description">
-                            Implemented a hybrid NLP log classification system combining regex rules, SentenceTransformer 
-                            embeddings (all-MiniLM-L6-v2) + Logistic Regression, and a Groq-hosted LLM to robustly classify 
-                            heterogeneous application logs. Deployed as a FastAPI service with CSV upload endpoint.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>FastAPI</span>
-                            <span>Logistic Regression</span>
-                            <span>Groq</span>
-                            <span>SentenceTransformer</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">Aug 2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="360_F_1569086119_8ByAZ1d2B3XtQAhx7r20QGuwwYUF4AXI.jpg" alt="Stock Market Research Assistant">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Stock Market Research Assistant</h3>
-                        <p class="project-description">
-                            Built a financial research assistant using Firecrawl for web scraping and Hugging Face embeddings 
-                            with ChromaDB in a RAG setup for semantic search. Integrated LangChain with Gemini LLM to enable 
-                            real-time, context-aware market analysis through natural language queries.
-                        </p>
-                        <div class="project-tech">
-                            <span>LangChain</span>
-                            <span>Python</span>
-                            <span>Firecrawl</span>
-                            <span>Gemini</span>
-                            <span>ChromaDB</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-link">May 2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="ChatGPT Image Jan 5, 2026, 01_08_38 PM.png" alt="Two-Stage Optimized Intrusion Detection">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Two-Stage Optimized Intrusion Detection</h3>
-                        <p class="project-description">
-                            Engineered a two-stage intrusion detection system on the NSL-KDD dataset with 30+ features, 
-                            incorporating advanced feature selection techniques (Mutual Information, F-score, Hippopotamus 
-                            Optimization). Achieved 94% classification accuracy using Scikit-learn and TensorFlow.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>Scikit-learn</span>
-                            <span>NSL-KDD</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://ieeexplore.ieee.org/document/10983002" target="_blank" rel="noopener noreferrer" class="project-link">Publication</a>
-                            <span class="project-link">Jul 2024</span>
-                        </div>
+                <div class="skill-group reveal">
+                    <h3 class="skill-group-title">
+                        <span class="skill-group-icon">◎</span>
+                        LLMs &amp; Agents
+                    </h3>
+                    <div class="skill-chips">
+                        <span>Claude</span><span>GPT-4o</span><span>Mistral</span><span>LoRA / QLoRA</span><span>RAG</span><span>HITL</span><span>LangSmith</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Projects -->
+    <section id="projects" class="projects section">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-subtitle">
-                I'm always open to discussing new projects, creative ideas, or 
-                opportunities to be part of your visions.
-            </p>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
+            <div class="section-header">
+                <span class="section-tag">Projects</span>
+                <h2 class="section-title">Things I've built</h2>
+            </div>
+
+            <div class="projects-featured">
+
+                <!-- PayGuard -->
+                <div class="project-card reveal" data-accent="amber">
+                    <div class="project-top">
+                        <div class="project-meta">
+                            <span class="project-category">ML Systems</span>
+                            <a href="https://github.com/Hemanth-Thulasiraman/payguard" target="_blank" rel="noopener noreferrer" class="project-icon-link" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
                         </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p><a href="mailto:hemanth7@umd.edu" style="color: inherit; text-decoration: none;">hemanth7@umd.edu</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p><a href="tel:+12409607770" style="color: inherit; text-decoration: none;">+1 (240) 960-7770</a></p>
+                        <h3 class="project-title">PayGuard</h3>
+                        <p class="project-desc">A production-grade real-time fraud detection engine trained on 590,540 transactions. Uses temporal splits (no leakage), LightGBM with class weighting, and a FastAPI scoring endpoint returning fraud probability in milliseconds. Catches 71.8% of fraud, preventing an estimated <strong>$330K in losses</strong> per test period.</p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">0.888</span><span class="metric-label">AUC-ROC</span></div>
+                            <div class="metric"><span class="metric-val">71.8%</span><span class="metric-label">Recall</span></div>
+                            <div class="metric"><span class="metric-val">14.7×</span><span class="metric-label">vs Random</span></div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>College Park, MD</p>
-                        </div>
+                    <div class="project-tech">
+                        <span>Python</span><span>LightGBM</span><span>FastAPI</span><span>Scikit-learn</span><span>Pandas</span>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <!-- SupportMind -->
+                <div class="project-card reveal" data-accent="emerald">
+                    <div class="project-top">
+                        <div class="project-meta">
+                            <span class="project-category">LLM Fine-tuning</span>
+                            <a href="https://github.com/Hemanth-Thulasiraman/supportmind" target="_blank" rel="noopener noreferrer" class="project-icon-link" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                        <h3 class="project-title">SupportMind</h3>
+                        <p class="project-desc">Fine-tuned Mistral-7B with LoRA adapters (4-bit quantized) to simultaneously classify 27 customer intent categories and generate on-brand support responses in one inference pass. Achieves <strong>94.7% macro F1</strong> across all intent classes. Turns a 2-hour ticket triage queue into sub-second automated responses.</p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">0.947</span><span class="metric-label">Macro F1</span></div>
+                            <div class="metric"><span class="metric-val">27</span><span class="metric-label">Intent Classes</span></div>
+                            <div class="metric"><span class="metric-val">0.51</span><span class="metric-label">ROUGE-1</span></div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <div class="project-tech">
+                        <span>Mistral-7B</span><span>LoRA</span><span>FastAPI</span><span>Hugging Face</span><span>PEFT</span>
                     </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+
+                <!-- CodeSense -->
+                <div class="project-card reveal" data-accent="sky">
+                    <div class="project-top">
+                        <div class="project-meta">
+                            <span class="project-category">AI Agent</span>
+                            <a href="https://github.com/Hemanth-Thulasiraman/codesense" target="_blank" rel="noopener noreferrer" class="project-icon-link" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                        <h3 class="project-title">CodeSense</h3>
+                        <p class="project-desc">An autonomous AI agent that reviews GitHub PRs in <strong>under 60 seconds</strong>, replacing 2 hours of senior engineer review time. Unlike static linters, it dynamically fetches diffs, runs static analysis, traces call-site dependencies, and posts structured review comments with severity ratings, adapting its depth to the PR's complexity.</p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">&lt;60s</span><span class="metric-label">Review Time</span></div>
+                            <div class="metric"><span class="metric-val">$300</span><span class="metric-label">Saved / PR</span></div>
+                            <div class="metric"><span class="metric-val">5</span><span class="metric-label">Agent Tools</span></div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <div class="project-tech">
+                        <span>LangGraph</span><span>GPT-4o</span><span>FastAPI</span><span>GitHub API</span><span>flake8</span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                </div>
+
+                <!-- FinSight -->
+                <div class="project-card reveal" data-accent="gold">
+                    <div class="project-top">
+                        <div class="project-meta">
+                            <span class="project-category">Agentic AI</span>
+                            <a href="https://github.com/Hemanth-Thulasiraman/FinSight" target="_blank" rel="noopener noreferrer" class="project-icon-link" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                        <h3 class="project-title">FinSight</h3>
+                        <p class="project-desc">An autonomous financial research agent that compresses equity research from <strong>hours to minutes</strong>. A LangGraph ReAct loop gathers company profiles, news, and financials, adapting its path dynamically. Features pgvector memory to reuse prior research, human-in-the-loop validation checkpoints, and full LangSmith observability for every tool call.</p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">ReAct</span><span class="metric-label">Agent Loop</span></div>
+                            <div class="metric"><span class="metric-val">HITL</span><span class="metric-label">Checkpoints</span></div>
+                            <div class="metric"><span class="metric-val">pgvector</span><span class="metric-label">Memory</span></div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span>LangGraph</span><span>GPT-4o</span><span>pgvector</span><span>PostgreSQL</span><span>FastAPI</span><span>LangSmith</span>
+                    </div>
+                </div>
+
+                <!-- Sentinel -->
+                <div class="project-card reveal" data-accent="rose">
+                    <div class="project-top">
+                        <div class="project-meta">
+                            <span class="project-category">Agentic AI · MLOps</span>
+                            <a href="https://github.com/Hemanth-Thulasiraman/sentinel" target="_blank" rel="noopener noreferrer" class="project-icon-link" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                        <h3 class="project-title">Sentinel</h3>
+                        <p class="project-desc">An intelligent log triage and incident response system for high-volume infrastructure alerts. An <strong>XGBoost pre-classifier</strong> filters noise, routing only MEDIUM/HIGH severity logs to a LangGraph agent that autonomously traces root causes across services and escalates with a full reasoning trace, dramatically reducing alert fatigue.</p>
+                        <div class="project-metrics">
+                            <div class="metric"><span class="metric-val">XGBoost</span><span class="metric-label">Pre-filter</span></div>
+                            <div class="metric"><span class="metric-val">SSE</span><span class="metric-label">Streaming</span></div>
+                            <div class="metric"><span class="metric-val">3-tier</span><span class="metric-label">Memory</span></div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span>LangGraph</span><span>Claude Sonnet</span><span>XGBoost</span><span>Redis Streams</span><span>FastAPI</span><span>Docker</span>
+                    </div>
+                </div>
+
             </div>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/hemanth-thulasiraman" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                </a>
+
+            <!-- Other Projects -->
+            <div class="other-projects">
+                <h3 class="other-projects-title">Other Projects</h3>
+                <div class="other-projects-grid">
+                    <div class="other-card reveal">
+                        <h4>Hybrid Log Classification System</h4>
+                        <p>Combines regex rules, SentenceTransformer embeddings + Logistic Regression, and a Groq-hosted LLM to classify heterogeneous application logs. Deployed as a FastAPI service with CSV upload endpoint.</p>
+                        <div class="other-tech"><span>FastAPI</span><span>SentenceTransformer</span><span>Groq</span></div>
+                    </div>
+                    <div class="other-card reveal">
+                        <h4>Two-Stage Intrusion Detection</h4>
+                        <p>NSL-KDD intrusion detection with Mutual Information, F-score, and Hippopotamus Optimization for feature selection. 94% accuracy with Scikit-learn and TensorFlow. <a href="https://ieeexplore.ieee.org/document/10983002" target="_blank" rel="noopener noreferrer">IEEE Published →</a></p>
+                        <div class="other-tech"><span>TensorFlow</span><span>Scikit-learn</span><span>NSL-KDD</span></div>
+                    </div>
+                    <div class="other-card reveal">
+                        <h4>Stock Market Research Assistant</h4>
+                        <p>RAG-powered financial assistant using Firecrawl for web scraping, Hugging Face embeddings with ChromaDB, and LangChain + Gemini for context-aware market analysis.</p>
+                        <div class="other-tech"><span>LangChain</span><span>ChromaDB</span><span>Gemini</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="contact-inner">
+                <div class="contact-left reveal">
+                    <span class="section-tag">Contact</span>
+                    <h2 class="contact-heading">Let's build something together.</h2>
+                    <p class="contact-sub">I'm always open to discussing ML engineering roles, research collaborations, or interesting projects. My inbox is open.</p>
+                    <div class="contact-links">
+                        <a href="mailto:hemanth7@umd.edu" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <p class="contact-link-label">Email</p>
+                                <p class="contact-link-val">hemanth7@umd.edu</p>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/hemanth-thulasiraman" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </div>
+                            <div>
+                                <p class="contact-link-label">LinkedIn</p>
+                                <p class="contact-link-val">hemanth-thulasiraman</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/Hemanth-Thulasiraman" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <div class="contact-link-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </div>
+                            <div>
+                                <p class="contact-link-label">GitHub</p>
+                                <p class="contact-link-val">Hemanth-Thulasiraman</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-right reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -375,11 +472,17 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Hemanth. All rights reserved.</p>
+            <div class="footer-inner">
+                <p class="footer-copy">© 2026 Hemanth Thulasiraman. Built with intention.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/Hemanth-Thulasiraman" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/in/hemanth-thulasiraman" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:hemanth7@umd.edu">Email</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-

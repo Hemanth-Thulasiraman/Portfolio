@@ -1,194 +1,227 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// ===== PARTICLE CANVAS =====
+(function () {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
+    const COLORS = [
+        'rgba(56,189,248,',   // sky blue
+        'rgba(129,140,248,',  // indigo
+        'rgba(52,211,153,',   // emerald
+    ];
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-    });
-});
+    let particles = [];
+    let W, H;
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Navbar background on scroll
-const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
+    function resize() {
+        const hero = canvas.parentElement;
+        W = canvas.width  = hero.offsetWidth;
+        H = canvas.height = hero.offsetHeight;
     }
-    
-    lastScroll = currentScroll;
-});
 
-// Active navigation link highlighting
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
+    function randomBetween(a, b) { return a + Math.random() * (b - a); }
 
-function highlightActiveSection() {
-    const scrollY = window.pageYOffset;
+    function spawnParticle() {
+        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        return {
+            x: randomBetween(0, W),
+            y: randomBetween(H * 0.2, H),
+            r: randomBetween(1, 2.5),
+            vx: randomBetween(-0.15, 0.15),
+            vy: randomBetween(-0.35, -0.12),
+            alpha: 0,
+            maxAlpha: randomBetween(0.25, 0.55),
+            fadeIn: true,
+            color,
+            life: 0,
+            maxLife: randomBetween(220, 420),
+        };
+    }
 
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-}
-
-window.addEventListener('scroll', highlightActiveSection);
-
-// Form submission handler
-const contactForm = document.querySelector('.contact-form');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Here you would typically send the data to a server
-    // For now, we'll just show an alert
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    
-    // Reset form
-    contactForm.reset();
-});
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.project-card, .skill-category, .stat');
-    
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-});
-
-// Add active class to nav links on page load
-window.addEventListener('load', () => {
-    highlightActiveSection();
-});
-
-// Typing effect for hero title (optional enhancement)
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.textContent = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
+    function init() {
+        particles = [];
+        for (let i = 0; i < 55; i++) {
+            const p = spawnParticle();
+            p.y = randomBetween(0, H);
+            p.life = randomBetween(0, p.maxLife);
+            p.alpha = p.maxAlpha * Math.sin((p.life / p.maxLife) * Math.PI);
+            particles.push(p);
         }
     }
-    
-    type();
-}
 
-// Profile Image Upload (Hidden - use keyboard shortcut 'U' to upload)
-const imageUpload = document.getElementById('imageUpload');
-const profileImage = document.getElementById('profileImage');
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
 
-if (imageUpload && profileImage) {
-    // Keyboard shortcut: Press 'U' to upload profile image
-    document.addEventListener('keydown', function(e) {
-        // Press 'U' key to trigger image upload (when not typing in input/textarea)
-        if (e.key === 'u' || e.key === 'U') {
-            const activeElement = document.activeElement;
-            if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                imageUpload.click();
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life++;
+
+            const t = p.life / p.maxLife;
+            p.alpha = p.maxAlpha * Math.sin(t * Math.PI);
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = p.color + p.alpha + ')';
+            ctx.fill();
+
+            if (p.life >= p.maxLife) {
+                particles[i] = spawnParticle();
             }
         }
-    });
 
-    imageUpload.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                profileImage.src = e.target.result;
-                profileImage.style.display = 'block';
-                // Save to localStorage for persistence
-                localStorage.setItem('profileImage', e.target.result);
-            };
-            reader.readAsDataURL(file);
+        requestAnimationFrame(draw);
+    }
+
+    resize();
+    init();
+    draw();
+    window.addEventListener('resize', () => { resize(); init(); });
+}());
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('open');
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+    });
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
         }
     });
+});
 
-    // Load saved image from localStorage on page load
-    const savedImage = localStorage.getItem('profileImage');
-    if (savedImage) {
-        profileImage.src = savedImage;
-        profileImage.style.display = 'block';
+// ===== ACTIVE NAV LINK =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link:not(.contact-btn)');
+
+function updateActiveNav() {
+    const scrollY = window.pageYOffset;
+    sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        const bottom = top + section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (scrollY >= top && scrollY < bottom) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.nav-link[href="#${id}"]`);
+            if (active) active.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+// ===== TYPING ANIMATION =====
+const roles = [
+    'production ML systems',
+    'LLM-powered agents',
+    'fraud detection engines',
+    'autonomous AI assistants',
+    'real-time ML pipelines',
+];
+
+const typedEl = document.getElementById('typed-role');
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let isPaused = false;
+
+function typeLoop() {
+    const current = roles[roleIndex];
+
+    if (!isDeleting && charIndex <= current.length) {
+        typedEl.textContent = current.slice(0, charIndex++);
+        setTimeout(typeLoop, charIndex > current.length ? 0 : 60);
+    } else if (!isDeleting && charIndex > current.length) {
+        if (!isPaused) {
+            isPaused = true;
+            setTimeout(() => { isDeleting = true; isPaused = false; typeLoop(); }, 1800);
+        }
+    } else if (isDeleting && charIndex >= 0) {
+        typedEl.textContent = current.slice(0, charIndex--);
+        setTimeout(typeLoop, 30);
     } else {
-        // Try to load profile.jpg from the project folder
-        // If it doesn't exist, the onerror handler will hide it
-        profileImage.style.display = 'block';
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeLoop, 300);
     }
 }
 
-// Uncomment below to enable typing effect on hero name
-// const heroName = document.querySelector('.name');
-// if (heroName) {
-//     const originalText = heroName.textContent;
-//     typeWriter(heroName, originalText, 100);
-// }
+setTimeout(typeLoop, 800);
 
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, 60);
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ===== CONTACT FORM =====
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = contactForm.querySelector('button[type="submit"]');
+        const original = btn.textContent;
+        btn.textContent = 'Message Sent!';
+        btn.style.background = 'linear-gradient(135deg, #34d399, #059669)';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.textContent = original;
+            btn.style.background = '';
+            btn.disabled = false;
+            contactForm.reset();
+        }, 3000);
+    });
+}
+
+// ===== PROFILE IMAGE =====
+const profileImage = document.getElementById('profileImage');
+document.addEventListener('keydown', (e) => {
+    if ((e.key === 'u' || e.key === 'U') && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.onchange = (ev) => {
+            const file = ev.target.files[0];
+            if (file && profileImage) {
+                const reader = new FileReader();
+                reader.onload = (re) => {
+                    profileImage.src = re.target.result;
+                    profileImage.style.display = 'block';
+                    document.querySelector('.profile-placeholder').style.display = 'none';
+                    localStorage.setItem('profileImage', re.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        input.click();
+    }
+});
+
+localStorage.removeItem('profileImage');
