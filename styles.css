@@ -31,6 +31,8 @@
     --gold-dim:   rgba(245, 158, 11, 0.12);
     --rose:       #fb7185;
     --rose-dim:   rgba(251, 113, 133, 0.12);
+    --violet:     #a78bfa;
+    --violet-dim: rgba(167, 139, 250, 0.12);
 
     --radius:     12px;
     --radius-lg:  20px;
@@ -844,6 +846,7 @@ strong { color: var(--text); font-weight: 600; }
 .project-card[data-accent="sky"]::before { background: linear-gradient(90deg, var(--sky), transparent); }
 .project-card[data-accent="gold"]::before { background: linear-gradient(90deg, var(--gold), transparent); }
 .project-card[data-accent="rose"]::before { background: linear-gradient(90deg, var(--rose), transparent); }
+.project-card[data-accent="violet"]::before { background: linear-gradient(90deg, var(--violet), transparent); }
 
 .project-card:hover {
     border-color: var(--border-hover);
@@ -879,6 +882,7 @@ strong { color: var(--text); font-weight: 600; }
 .project-card[data-accent="sky"] .project-category { color: var(--sky); border-color: rgba(56,189,248,0.2); background: var(--sky-dim); }
 .project-card[data-accent="gold"] .project-category { color: var(--gold); border-color: rgba(245,158,11,0.2); background: var(--gold-dim); }
 .project-card[data-accent="rose"] .project-category { color: var(--rose); border-color: rgba(251,113,133,0.2); background: var(--rose-dim); }
+.project-card[data-accent="violet"] .project-category { color: var(--violet); border-color: rgba(167,139,250,0.2); background: var(--violet-dim); }
 
 .project-icon-link {
     display: flex;
@@ -948,6 +952,7 @@ strong { color: var(--text); font-weight: 600; }
 .project-card[data-accent="sky"] .metric-val { color: var(--sky); }
 .project-card[data-accent="gold"] .metric-val { color: var(--gold); }
 .project-card[data-accent="rose"] .metric-val { color: var(--rose); }
+.project-card[data-accent="violet"] .metric-val { color: var(--violet); }
 
 .metric-label {
     font-size: 0.68rem;
